@@ -1,0 +1,7 @@
+create database hopital;
+use hopital;
+create table login(id_login int(20) AUTO_INCREMENT primary key,name char(20),password char(20));
+insert into login(id_login,name,password)values(1,"root","123");
+create table employe(id_employe int(20) auto_increment primary key, nom char(20),fonction char(20),adresse char(20),tel int(20));
+create table rendez_vous(id_rendez_vous int(20) auto_increment primary key,nom_docteur char(20),specialist char(20),nom_malade char(20),chambre char(20),date char(20));
+create table pharmacie(id_pharmacie int(20) auto_increment primary key,nom char(20),dose char(20),date_creation char(20),date_expiration char(20),paquet int(20));
