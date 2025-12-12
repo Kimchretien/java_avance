@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #D4F6FF">
+  <h:form>
+	<h1>Agents</h1>
+	<br />
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText styleClass="in" value="Nom:" />
+	<h:inputText value="#{ag.nom}" />
+	<h:outputText styleClass="in" value="Age:" />
+	<h:inputText value="#{ag.age}" />
+	<h:outputText styleClass="in" value="Phone:" />
+	<h:inputText value="#{ag.phone}" />
+	<h:outputText styleClass="in" value="Adresse:" />
+	<h:inputText value="#{ag.adresse}" />
+	</h:panelGrid>	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	<a4j:commandButton action="#{ag.enregistrer}" value="Enregistrer" reRender="hhh" oncomplete="alert(data)" data= "#{ag.info}"/>
+	<a4j:commandButton action="#{ag.supprimer}" value="Supprimer" reRender="hhh" oncomplete="alert(data)" data= "#{ag.info}" />
+	<a4j:commandButton action="#{ag.modifier}" value="Changer" reRender="hhh" oncomplete="alert(data)" data= "#{ag.info}"/>
+	<a4j:commandButton action="#{ag.menu}" value="Menu" reRender="hhh" oncomplete="alert(data)" data= "#{ag.info}"/>
+	</h:panelGrid>
+	<br />
+	<h:panelGrid columns="2">
+	<h:outputText value="id" />
+	<h:inputText value="#{ag.id}" style=" width : 34px;"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{ag.agents}" var="a" id="hhh" style=" width : 361px;">
+	<f:facet name="header">Agents</f:facet>
+	<rich:column>
+	<f:facet name="header">id</f:facet>
+	#{a.id}
+	</rich:column>
+	
+	<rich:column>
+	<f:facet name="header">Nom</f:facet>
+	#{a.nom}
+	</rich:column>
+	
+	<rich:column>
+	<f:facet name="header">Age</f:facet>
+	#{a.age}
+	</rich:column>
+	
+	<rich:column>
+	<f:facet name="header">Telephone</f:facet>
+	#{a.phone}
+	</rich:column>
+	
+	<rich:column>
+	<f:facet name="header">Adresse</f:facet>
+	#{a.adresse}
+	</rich:column>
+	
+	</rich:dataTable>
+	
+	</h:form>
+  </body>
+</html>
