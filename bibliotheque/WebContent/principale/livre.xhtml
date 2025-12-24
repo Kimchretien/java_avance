@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #FFFC9B">
+  <h:form>
+	<h1>Livres</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText  value="Nom" />
+	<h:inputText value="#{lv.nom}" />
+	<h:outputText styleClass="in" value="Auteur" />
+	<h:inputText value="#{lv.auteur}" />
+	<h:outputText  value="Genre" />
+	<h:inputText value="#{lv.genre}" />
+	<h:outputText  value="Disponible" />
+	<h:inputText value="#{lv.disponible}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2" style=" width : 86px;">
+	<h:outputText value="id: " />
+	<h:inputText value="#{lv.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	<a4j:commandButton action="#{lv.Inserer}" reRender="l" value="Inserer" oncomplete="alert(data)" data= "#{lv.info}"/>
+	<a4j:commandButton action="#{lv.annuler}" reRender="l" value="Supprimer" oncomplete="alert(data)" data= "#{lv.info}" />
+	<a4j:commandButton action="#{lv.modifier}" reRender="l" value="Modifier" oncomplete="alert(data)" data= "#{lv.info}"/>
+	<a4j:commandButton action="#{lv.menu}" reRender="l" value="Menu" oncomplete="alert(data)" data= "#{lv.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{lv.livres}" var="m" id="l" style=" width : 361px;">
+	<f:facet  name="header">LIVRES</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{m.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom</f:facet>
+	#{m.nom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Auteur</f:facet>
+	#{m.auteur}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Genre</f:facet>
+	#{m.genre}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Disponible</f:facet>
+	#{m.disponible}
+	</rich:column>
+	
+	</rich:dataTable>
+	
+	</h:form>
+  </body>
+</html>

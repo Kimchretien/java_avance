@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #FFFC9B">
+  
+  <h:form>
+	<h1>EMPLOYEES</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText  value="Nom" />
+	<h:inputText value="#{em.nom}" />
+	<h:outputText styleClass="in" value="Prenom" />
+	<h:inputText value="#{em.prenom}" />
+	<h:outputText  value="identite" />
+	<h:inputText value="#{em.identite}" />
+	<h:outputText  value="Tel" />
+	<h:inputText value="#{em.tel}" />
+	<h:outputText  value="Adresse" />
+	<h:inputText value="#{em.adresse}" />
+	<h:outputText  value="Fonction" />
+	<h:inputText value="#{em.fonction}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2" style=" width : 86px;">
+	<h:outputText value="id: " />
+	<h:inputText value="#{em.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	<a4j:commandButton action="#{em.Inserer}" reRender="emp" value="Inserer" oncomplete="alert(data)" data= "#{em.info}"/>
+	<a4j:commandButton action="#{em.annuler}" reRender="emp" value="Supprimer" oncomplete="alert(data)" data= "#{em.info}" />
+	<a4j:commandButton action="#{em.modifier}" reRender="emp" value="Modifier" oncomplete="alert(data)" data= "#{em.info}"/>
+	<a4j:commandButton action="#{em.menu}" reRender="emp" value="Menu" oncomplete="alert(data)" data= "#{em.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{em.employees}" var="m" id="emp" style=" width : 361px;">
+	<f:facet  name="header">EMPLOYEES</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{m.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom</f:facet>
+	#{m.nom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Prenom</f:facet>
+	#{m.prenom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Identite</f:facet>
+	#{m.identite}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Telephone</f:facet>
+	#{m.tel}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Adresse</f:facet>
+	#{m.adresse}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Fonction</f:facet>
+	#{m.fonction}
+	</rich:column>
+	
+	</rich:dataTable>
+	
+	</h:form>
+  
+  </body>
+</html>
