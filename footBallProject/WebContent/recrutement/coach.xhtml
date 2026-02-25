@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #EADBC8">
+  <h:form>
+	<h1>PLAYERS</h1>
+	<br />
+	<h:panelGrid columns="2" style=" width : 456px;">
+    <h:outputText value="Nom:" />
+    <h:inputText value="#{c.nom}" />
+    <h:outputText styleClass="in" value="Prenom" />
+    <h:inputText styleClass="input" value="#{c.prenom}" />
+    <h:outputText value="Age:" />
+    <h:inputText value="#{c.age}" />
+    <h:outputText value="Licence" />  
+    <h:inputText value="#{c.licence}"/>
+	</h:panelGrid>
+	<br />
+	<h:panelGrid columns="2" style=" width : 86px;">
+	    <h:outputText value="id: " />
+	    <h:inputText value="#{c.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	    <a4j:commandButton reRender="co" action="#{c.enregistrer}" value="Enregistrer" oncomplete="alert(data)" data="#{c.info}"/>
+	    <a4j:commandButton reRender="co" action="#{c.supprimer}" value="supprimer" oncomplete="alert(data)" data="#{c.info}" />
+	    <a4j:commandButton reRender="co" action="#{c.modifier}" value="Modifier" oncomplete="alert(data)" data="#{c.info}"/>
+	    <a4j:commandButton reRender="co" action="#{c.menu}" value="Menu" oncomplete="alert(data)" data="#{c.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{c.list_coach}" var="vis" id="co" style="width : 532px; height : 62px;">
+	<f:facet name="header">COACHS</f:facet>
+	<rich:column>
+	<f:facet name="header">id</f:facet>
+	#{vis.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom</f:facet>
+	#{vis.nom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">prenom</f:facet>
+	#{vis.prenom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">age</f:facet>
+	#{vis.age}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">licence</f:facet>
+	#{vis.licence}
+	</rich:column>
+	</rich:dataTable>
+	
+	</h:form>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+create database market;
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE produit (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100),
+    date VARCHAR(10),
+    prix DECIMAL(10,2),
+    quantite INT
+);
+
+CREATE TABLE client (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    identite VARCHAR(20) UNIQUE,
+    telephone VARCHAR(20)
+);
+
+CREATE TABLE employe (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    identite VARCHAR(20),
+    telephone VARCHAR(20),
+    adresse VARCHAR(100),
+    fonction VARCHAR(50)
+);

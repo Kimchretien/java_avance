@@ -1,0 +1,6 @@
+create database pharmacie;
+create table login(id_login int(20) auto_increment  primary key,name char(20),password char(20));
+insert into login(id_login,name,password)values(1,"sudo","123");
+create table medicament(id_med int(20) auto_increment primary key,nom char(20),prix int(20), quantite int(20), d_fab char(20),d_exp char(20));
+create table agent(id_agent int(20) auto_increment primary key,nom char(20),age int(20),phone int(20),adresse char(20));
+create table company(id_comp int(20) auto_increment primary key,nom char(20), experience char(20),adresse char(20),phone int(20));

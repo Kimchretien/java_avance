@@ -1,0 +1,32 @@
+create database ecole;
+
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE etudiants (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100),
+    prenom VARCHAR(100),
+    date_naissance VARCHAR(100),
+    email VARCHAR(100),
+    telephone VARCHAR(15)
+);
+
+CREATE TABLE cours (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    intitule VARCHAR(100),
+    code_cours VARCHAR(20),
+    credit INT
+);
+
+CREATE TABLE inscriptions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_etudiant VARCHAR(50),
+    intitule VARCHAR(50),
+    date_inscription VARCHAR(50),
+    FOREIGN KEY (nom_etudiant) REFERENCES etudiants(nom),
+    FOREIGN KEY (intitule) REFERENCES cours(intitule)
+);

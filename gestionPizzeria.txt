@@ -1,0 +1,34 @@
+CREATE DATABASE gestion_pizzeria;
+
+USE gestion_pizzeria;
+
+
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Table des clients
+CREATE TABLE clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    telephone VARCHAR(15) NOT NULL UNIQUE
+);
+
+-- Table des pizzas
+CREATE TABLE pizzas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prix DECIMAL(10, 2) NOT NULL
+);
+
+-- Table des commandes
+CREATE TABLE commandes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client VARCHAR(100) NOT NULL,
+    pizza VARCHAR(100) NOT NULL,
+    quantite INT NOT NULL,
+    FOREIGN KEY (client) REFERENCES clients(nom),
+    FOREIGN KEY (pizza) REFERENCES pizzas(nom)
+);

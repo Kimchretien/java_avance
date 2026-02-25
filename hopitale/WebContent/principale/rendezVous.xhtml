@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #CBD2A4">
+  <h:form>
+	<h1>Rendez Vous</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText value="nom du Docteur:" />
+	<h:inputText value="#{rdv.nom_docteur}" />
+	<h:outputText value="Specialisme:" />
+	<h:inputText value="#{rdv.specialist}" />
+	<h:outputText value="nom du malade:" />
+	<h:inputText value="#{rdv.nom_malade}" />
+	<h:outputText value="Chambre:" />
+	<h:inputText value="#{rdv.chambre}" />
+	<h:outputText value="Date:" />
+	<h:inputText value="#{rdv.date}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2">
+	<h:outputText value="id" />
+	<h:inputText value="#{rdv.id}" style="height : 23px; width : 51px;"/>
+	</h:panelGrid>
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	
+	<a4j:commandButton action="#{rdv.demander}" reRender="r" value="Demander" oncomplete="alert(data)" data= "#{rdv.info}"/>
+	<a4j:commandButton action="#{rdv.annuler}" reRender="r" value="Annuler" oncomplete="alert(data)" data= "#{rdv.info}" />
+	<a4j:commandButton action="#{rdv.changer}" reRender="r" value="Changer" oncomplete="alert(data)" data= "#{rdv.info}"/>
+	<a4j:commandButton action="#{rdv.menu}" reRender="r" value="Menu" oncomplete="alert(data)" data= "#{rdv.info}"/>
+	</h:panelGrid>
+	
+	<br />
+	<rich:dataTable value="#{rdv.les_rendez_vous}" var="rd" id="r" style=" width : 361px;">
+	<f:facet  name="header">Les Rendez Vous</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{rd.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom du Docteur</f:facet>
+	#{rd.nom_docteur}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Specialist</f:facet>
+	#{rd.specialist}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom du Malade</f:facet>
+	#{rd.nom_malade}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Chambre</f:facet>
+	#{rd.chambre}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Date</f:facet>
+	#{rd.date}
+	</rich:column>
+	
+	</rich:dataTable>
+	</h:form>
+  </body>
+</html>

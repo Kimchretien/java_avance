@@ -1,0 +1,32 @@
+create database bibliotheque;
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE employe (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    identite VARCHAR(20),
+    telephone VARCHAR(20),
+    adresse VARCHAR(100),
+    fonction VARCHAR(50)
+);
+
+CREATE TABLE reader(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    identite VARCHAR(20) UNIQUE,
+    telephone VARCHAR(20)
+);
+
+CREATE TABLE livre(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    auteur VARCHAR(50) NOT NULL,
+    genre VARCHAR(20),
+    disponible VARCHAR(20)
+);

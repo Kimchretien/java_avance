@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #B6FFA1">
+  <h:form style="text-align: center;" >
+  	<h1 style="FONT-SIZE: xx-large;">Menu</h1>
+  	<h:panelGrid  columns="2">
+  		  <h:outputText value="Nom" />
+		  <h:inputText value="#{log.nom}" />
+		  <h:outputText value="Login" />
+		  <h:inputSecret value="#{log.password}" />
+		  <a4j:commandButton action="#{log.connect}" value="se connecter" oncomplete="alert(data)"  data="#{log.info}" />
+		  <a4j:commandButton action="#{log.register}" value="creer un compte"  />
+  	</h:panelGrid>
+  </h:form>
+  </body>
+</html>

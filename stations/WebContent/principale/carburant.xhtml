@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #F5F5DC">
+  <h:form >
+	<h1>CARBURANTS</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText  value="Type" />
+	<h:inputText value="#{carb.carb}" />
+	<h:outputText styleClass="in" value="Capacite" />
+	<h:inputText value="#{carb.cap}" />
+	<h:outputText  value="Quantite" />
+	<h:inputText value="#{carb.quant}" />
+	<h:outputText  value="Nom Station" />
+    <h:selectOneMenu value="#{carb.stat}">
+     	<f:selectItems value="#{carb.stations}" />
+	</h:selectOneMenu>
+	</h:panelGrid>
+	<h:panelGrid columns="2" style=" width : 86px;">
+	<h:outputText value="id: " />
+	<h:inputText value="#{carb.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	<a4j:commandButton action="#{carb.Inserer}" reRender="c" value="Inserer" oncomplete="alert(data)" data= "#{carb.info}"/>
+	<a4j:commandButton action="#{carb.annuler}" reRender="c" value="Supprimer" oncomplete="alert(data)" data= "#{carb.info}" />
+	<a4j:commandButton action="#{carb.modifier}" reRender="c" value="Modifier" oncomplete="alert(data)" data= "#{carb.info}"/>
+	<a4j:commandButton action="#{carb.menu}" reRender="c" value="Menu" oncomplete="alert(data)" data= "#{carb.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{carb.carburants}" var="m" id="c" style=" width : 361px;">
+	<f:facet  name="header">CARBURANTS</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{m.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Type carburant</f:facet>
+	#{m.carb}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Capacite en littre</f:facet>
+	#{m.cap}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Quantite</f:facet>
+	#{m.quant}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">station</f:facet>
+	#{m.stat}
+	</rich:column>
+	
+	</rich:dataTable>
+	
+	</h:form>
+  </body>
+</html>

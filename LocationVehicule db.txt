@@ -1,0 +1,31 @@
+create database vehicule;
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE voiture (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    marque VARCHAR(50),
+    modele VARCHAR(50),
+    immatriculation VARCHAR(20)
+);
+
+CREATE TABLE moto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    marque VARCHAR(50),
+    modele VARCHAR(50),
+    immatriculation VARCHAR(20)
+);
+
+
+CREATE TABLE employe (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    identite VARCHAR(20),
+    telephone VARCHAR(20),
+    adresse VARCHAR(100),
+    fonction VARCHAR(50)
+);

@@ -1,0 +1,22 @@
+create database gestion_station;
+use gestion_station;
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE stations (
+    id_station INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    emplacement VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE carburants (
+    id_carburant INT AUTO_INCREMENT PRIMARY KEY,
+    type_carburant VARCHAR(50) NOT NULL,
+    capacite INT NOT NULL,
+    quantite_stockee INT NOT NULL,
+    station_nom VARCHAR(50),
+    FOREIGN KEY (station_nom) REFERENCES stations(nom)
+);

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#principale#login.xhtml"
+  PATH="/principale/login.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#principale#login.xhtml:0" NAME="item"
+   PATH="/principale/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="::#principale#menu.xhtml" NAME="output"
+    PATH="/principale/menu.xhtml" TARGET="rules:#principale#menu.xhtml"
+    TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="::#principale#register.xhtml" NAME="output1"
+    PATH="/principale/register.xhtml"
+    TARGET="rules:#principale#register.xhtml" TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#principale#menu.xhtml"
+  PATH="/principale/menu.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#principale#menu.xhtml:0" NAME="item"
+   PATH="/principale/menu.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="::#principale#reception.xhtml" NAME="output"
+    PATH="/principale/reception.xhtml"
+    TARGET="rules:#principale#reception.xhtml" TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="::#principale#pharmacie.xhtml"
+    NAME="output1" PATH="/principale/pharmacie.xhtml"
+    TARGET="rules:#principale#pharmacie.xhtml" TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="::#principale#rendezVous.xhtml"
+    NAME="output2" PATH="/principale/rendezVous.xhtml"
+    TARGET="rules:#principale#rendezVous.xhtml" TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#principale#register.xhtml"
+  PATH="/principale/register.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#principale#register.xhtml:0" NAME="item"
+   PATH="/principale/register.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="::#principale#login.xhtml" NAME="output"
+    PATH="/principale/login.xhtml"
+    TARGET="rules:#principale#login.xhtml" TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#principale#reception.xhtml"
+  PATH="/principale/reception.xhtml" SHAPE="464,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#principale#reception.xhtml:0" NAME="item"
+   PATH="/principale/reception.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="::#principale#menu.xhtml" NAME="output"
+    PATH="/principale/menu.xhtml" TARGET="rules:#principale#menu.xhtml"
+    TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#principale#pharmacie.xhtml"
+  PATH="/principale/pharmacie.xhtml" SHAPE="480,161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#principale#pharmacie.xhtml:0" NAME="item"
+   PATH="/principale/pharmacie.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="::#principale#menu.xhtml" NAME="output"
+    PATH="/principale/menu.xhtml" TARGET="rules:#principale#menu.xhtml"
+    TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#principale#rendezVous.xhtml"
+  PATH="/principale/rendezVous.xhtml" SHAPE="496,305,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#principale#rendezVous.xhtml:0" NAME="item"
+   PATH="/principale/rendezVous.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="::#principale#menu.xhtml" NAME="output"
+    PATH="/principale/menu.xhtml" TARGET="rules:#principale#menu.xhtml"
+    TITLE="[any]" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

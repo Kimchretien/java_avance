@@ -1,0 +1,31 @@
+create database recrutement;
+use recrutement;
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE player (
+    idPlayer INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    age INT,
+    poids DECIMAL(5,2)
+);
+
+CREATE TABLE fan (
+    idFan INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    tel VARCHAR(20),
+    pays VARCHAR(50)
+);
+
+CREATE TABLE coach (
+    idCoach INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    age INT,
+    licence VARCHAR(50)
+);

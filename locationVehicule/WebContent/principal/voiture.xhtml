@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: grey;">
+  <h:form>
+	<h1>VOITURES</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText  value="Marque" />
+	<h:inputText value="#{v.marque}" />
+	<h:outputText styleClass="in" value="Model" />
+	<h:inputText value="#{v.model}" />
+	<h:outputText  value="Immatricule" />
+	<h:inputText value="#{v.immatricule}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2" style=" width : 86px;">
+	<h:outputText value="id: " />
+	<h:inputText value="#{v.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="3" style=" width : 423px;">
+	<a4j:commandButton action="#{v.Inserer}" reRender="moi" value="Inserer" oncomplete="alert(data)" data= "#{v.info}"/>
+	<a4j:commandButton action="#{v.annuler}" reRender="moi" value="Supprimer" oncomplete="alert(data)" data= "#{v.info}" />
+	<a4j:commandButton action="#{v.modifier}" reRender="moi" value="Modifier" oncomplete="alert(data)" data= "#{v.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{v.voitures}" var="moto" id="moi" style=" width : 361px;">
+	<f:facet  name="header">MOTOS</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{moto.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Marque</f:facet>
+	#{moto.marque}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Model</f:facet>
+	#{moto.model}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Immatricule</f:facet>
+	#{moto.immatricule}
+	</rich:column>
+	</rich:dataTable>
+	</h:form>
+  </body>
+</html>

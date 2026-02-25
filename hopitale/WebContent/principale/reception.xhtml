@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #CBD2A4">
+  
+  	<h:form>
+	<h1>Employes</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+		<h:outputText value="nom:" />
+		<h:inputText value="#{rec.nom}" />
+		<h:outputText value="fonction:" />
+		<h:inputText value="#{rec.fonction}" />
+		<h:outputText  value="Adresse:" />
+		<h:inputText value="#{rec.adresse}" />
+		<h:outputText  value="Tel:" />
+		<h:inputText value="#{rec.numero}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2">
+		<h:outputText value="id: " />
+		<h:inputText value="#{rec.id}" style=" width : 27px;"/>
+	</h:panelGrid>
+	</h:panelGrid>
+	
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 329px;">
+		<a4j:commandButton action="#{rec.ajouter}" reRender="r" value="Enregistrer" oncomplete="alert(data)" data= "#{rec.info}"/>
+		<a4j:commandButton action="#{rec.enlever}" value="Enlever" reRender="r" oncomplete="alert(data)" data= "#{rec.info}" />
+		<a4j:commandButton action="#{rec.changer}" value="Changer" reRender="r" oncomplete="alert(data)" data= "#{rec.info}"/>
+		<a4j:commandButton action="#{rec.menu}" value="Menu" reRender="r" oncomplete="alert(data)" data= "#{rec.info}"/>
+		</h:panelGrid>
+	<br />
+	
+	<rich:dataTable value="#{rec.employes}" var="r" id="r" style=" width : 361px;">
+	<f:facet  name="header">Employes</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{r.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom</f:facet>
+	#{r.nom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">fonction</f:facet>
+	#{r.fonction}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">adresse</f:facet>
+	#{r.adresse}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Telephone</f:facet>
+	#{r.numero}
+	</rich:column>
+	
+	</rich:dataTable>
+	</h:form>
+  </body>
+</html>

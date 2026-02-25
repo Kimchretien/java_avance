@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  	<head>
+		
+	</head>
+	<body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #EADBC8">
+	<h:form>
+	<h1>AUTHENTIFICATION</h1>
+	<h:panelGrid columns="2">
+		  <h:outputText value="Nom" />
+		  <h:inputText value="#{auth.nom}" />
+		  <h:outputText value="Login" />
+		  <h:inputSecret value="#{auth.password}" />
+		  <a4j:commandButton action="#{auth.connect}" value="Connect" oncomplete="alert(data)"  data="#{auth.info}" />
+		  <a4j:commandButton action="#{auth.register}" value="register"  />
+	</h:panelGrid>
+	
+	</h:form>
+	
+	
+		
+	
+	</body>
+</html>

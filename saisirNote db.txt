@@ -1,0 +1,25 @@
+create database gestionNote;
+use gestionNote;
+
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE etudiants (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100),
+    prenom VARCHAR(100),
+    date_naissance varchar(20),
+    email VARCHAR(100),
+    telephone VARCHAR(15)
+);
+
+CREATE TABLE notes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_etudiant VARCHAR(100),
+    matiere VARCHAR(100),
+    note DECIMAL(5, 2),
+    FOREIGN KEY (nom_etudiant) REFERENCES etudiants(nom)
+);

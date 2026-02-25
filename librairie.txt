@@ -1,0 +1,33 @@
+create database librairie;
+
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE livres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(150) UNIQUE,
+    auteur VARCHAR(100),
+    prix DECIMAL(10, 2),
+    annee_publication varchar(20),
+    genre VARCHAR(50)
+);
+
+CREATE TABLE client (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    identite VARCHAR(20) UNIQUE,
+    telephone VARCHAR(20)
+);
+
+CREATE TABLE commandes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_livre VARCHAR(150),
+    nom_client VARCHAR(100),
+    date_commande varchar(20),
+    FOREIGN KEY (nom_livre) REFERENCES livres(nom),
+    FOREIGN KEY (nom_client) REFERENCES clients(nom)
+);
