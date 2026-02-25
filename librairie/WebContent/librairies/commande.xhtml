@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #D6C0B3">
+  <h:form>
+	<h1>COMMANDES</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText  value="Clients" />
+	<h:selectOneMenu value="#{com.client}">
+     	<f:selectItems value="#{com.clients}" />
+	</h:selectOneMenu>
+	<h:outputText  value="Livres" />
+	<h:selectOneMenu value="#{com.livre}">
+     	<f:selectItems value="#{com.livres}" />
+	</h:selectOneMenu>
+	<h:outputText  value="Date de commande" />
+	<h:inputText value="#{com.date}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2" style=" width : 86px;">
+	<h:outputText value="id: " />
+	<h:inputText value="#{com.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	<a4j:commandButton action="#{com.Inserer}" reRender="c" value="Inserer" oncomplete="alert(data)" data= "#{com.info}"/>
+	<a4j:commandButton action="#{com.annuler}" reRender="c" value="Supprimer" oncomplete="alert(data)" data= "#{com.info}" />
+	<a4j:commandButton action="#{com.modifier}" reRender="c" value="Modifier" oncomplete="alert(data)" data= "#{com.info}"/>
+	<a4j:commandButton action="#{com.menu}" reRender="c" value="Menu" oncomplete="alert(data)" data= "#{com.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{com.commandes}" var="m" id="c" style=" width : 361px;">
+	<f:facet  name="header">COMMANDES</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{m.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Clients</f:facet>
+	#{m.client}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Livres</f:facet>
+	#{m.livre}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Date de commande</f:facet>
+	#{m.date}
+	</rich:column>
+	
+	</rich:dataTable>
+	
+	</h:form>
+  </body>
+</html>

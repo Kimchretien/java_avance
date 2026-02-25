@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+  <head></head>
+
+  <body style=" display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #D6C0B3">
+  <h:form>
+	<h1>CLIENTS</h1>
+	<br />
+	<h:panelGrid columns="2">
+	<h:panelGrid columns="2" style=" width : 456px;">
+	<h:outputText  value="Nom" />
+	<h:inputText value="#{cl.nom}" />
+	<h:outputText styleClass="in" value="Prenom" />
+	<h:inputText value="#{cl.prenom}" />
+	<h:outputText  value="identite" />
+	<h:inputText value="#{cl.identite}" />
+	<h:outputText  value="Tel" />
+	<h:inputText value="#{cl.tel}" />
+	</h:panelGrid>
+	<h:panelGrid columns="2" style=" width : 86px;">
+	<h:outputText value="id: " />
+	<h:inputText value="#{cl.id}" style=" width : 43px;"/>
+	</h:panelGrid>
+	
+	</h:panelGrid>
+	
+	<br />
+	<h:panelGrid columns="4" style=" width : 423px;">
+	<a4j:commandButton action="#{cl.Inserer}" reRender="c" value="Inserer" oncomplete="alert(data)" data= "#{cl.info}"/>
+	<a4j:commandButton action="#{cl.annuler}" reRender="c" value="Supprimer" oncomplete="alert(data)" data= "#{cl.info}" />
+	<a4j:commandButton action="#{cl.modifier}" reRender="c" value="Modifier" oncomplete="alert(data)" data= "#{cl.info}"/>
+	<a4j:commandButton action="#{cl.menu}" reRender="c" value="Menu" oncomplete="alert(data)" data= "#{cl.info}"/>
+	</h:panelGrid>
+	<br />
+	<rich:dataTable value="#{cl.clients}" var="m" id="c" style=" width : 361px;">
+	<f:facet  name="header">EMPLOYEES</f:facet>
+	<rich:column>
+	<f:facet  name="header">id</f:facet>
+	#{m.id}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">nom</f:facet>
+	#{m.nom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Prenom</f:facet>
+	#{m.prenom}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Identite</f:facet>
+	#{m.identite}
+	</rich:column>
+	<rich:column>
+	<f:facet name="header">Telephone</f:facet>
+	#{m.tel}
+	</rich:column>
+	
+	</rich:dataTable>
+	
+	</h:form>
+  </body>
+</html>
